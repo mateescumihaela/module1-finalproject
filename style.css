@@ -1,0 +1,54 @@
+.canvas-container {
+  width: 800px;
+  height: 450px;
+  border: 3px solid black;
+  margin: 0 auto;
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url("../images/background.jpg");
+  background-position-x: right;
+  background-size: cover;
+  z-index: 3;
+}
+
+
+#typing-form {
+  font-family: "Roboto Slab";
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  position: absolute;
+  border: 0px solid blue;
+  outline: none;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 40px;
+  padding: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+#word-list {
+  font-family: "Roboto Slab";
+  font-size: 14px;
+  font-weight: bold;
+  list-style: none;
+  position: absolute;
+  display: block;
+  top: 65px;
+  right: 10px;
+  color: white;
+  line-height: 2.5;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 12%;
+  padding: 0;
+  text-align: center;
+}
+
+#page {
+  display: flex;
+  flex-direction: column;
+}
