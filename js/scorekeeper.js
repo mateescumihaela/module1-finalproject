@@ -2,7 +2,7 @@ let scoreKeeper = (function(){
     let round = 0;
     let score = 0;
     let level = 0;
-   //bool to track typing an entire LINE without a mistake
+   //boolean to track typing an entire LINE without a mistake
     let flawless = true;
   
     return{
@@ -19,7 +19,7 @@ let scoreKeeper = (function(){
         if(flawless){
          ctx.textAlign = 'center';
         }
-        ctx.textAlign = 'start'; // this sets alignment back to default for the LINE display
+        ctx.textAlign = 'start'; // sets alignment back to default for the LINE display
         ctx.fillText('Level ' + level + ': ' + round, 20, 30);
         ctx.beginPath();
         ctx.moveTo(0, 40);

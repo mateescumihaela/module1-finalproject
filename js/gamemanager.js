@@ -1,11 +1,12 @@
+
+
 let gameManager = (function(){
     //number to track game state. checked with every keypress
     //states;
-    // 0-paused, no input, no frame refresh (only PEWs)
+    // 0-paused, no input, no frame refresh
     // 1-opening/'game over' screen. input -> gameManager.newGame
     // 2-deck rolling. standard gameplay. input -> deck.compare
-    // 3-quiz display. input -> quiz.take
-    // 4-powerAttack display. no input.
+    // 3-powerAttack display. no input.
     let state = 1;
     let intervalId = null;
     
@@ -40,8 +41,8 @@ let gameManager = (function(){
      }
     };
    })();
-   
-   
+
+
 // GAME LOOP
    
    function gameLoop(){
@@ -65,9 +66,9 @@ let gameManager = (function(){
      deck.draw();
      fighter.draw(deck.getX() - 100, deck.getY() - 100, 100);
     //state: powerAttack display
-    } else if(state === 4){ //set to 4
+    } else if(state === 3){ //set to 3
     
-    //lower the DECK based on score Or nearness to top. Clear quiz.success when power is gone. need a minimum power amount for 1 iteration of animation
+    //lower the DECK based on score or nearness to top. need a minimum power amount for 1 iteration of animation
      powerAttack.callPower();
      deck.draw();
     //display power animation
@@ -81,4 +82,5 @@ let gameManager = (function(){
      pewGone(i);
     }
    }
+   
    
