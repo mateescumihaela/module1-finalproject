@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1 Final Project</title>
-    <link rel="stylesheet" href="style.css"/>
+<title>Module 1 Final Project</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-    <body id="page">
-
-        <h1 class="game-title">Module 1 Final Project</h1>
-    
-        <div class="canvas-container">
-          <canvas class="start-screen" id="canvas" width="800" height="450"></canvas>
-          <input id="typing-form" disabled autofocus autocapitalize="none"></input>
-          <ul id="word-list">
-          </ul>
-        </div>
-    <script type="text/javascript" src="js/game.js"></script>
-    <script type="text/javascript" src="js/player.js"></script>
-    <script type="text/javascript" src="js/obstacle.js"></script>
-    <script type="text/javascript" src="js/dictionary.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+<body>
+<div id = "outerEdge"><div id = "gameDiv"><canvas id = "gameCanvas" width="800" height="600"></canvas></div></div>
+<script language="javascript" src="js/game.js"></script>
+<script language="javascript" src="js/helpers.js"></script>
+<script language="javascript" src="js/player.js"></script>
+<script language="javascript" src="js/scorekeeper.js"></script>
+<script language="javascript" src="js/main.js"></script>
 </body>
 </html>
