@@ -266,10 +266,9 @@ class Board {
     );
     this.ctx.fillText(`Accuracy:    ${this.accuracy}%`, 375, 35);
     this.ctx.fillText(`Score:   ${this.score}`, 635, 35);
-    this.ctx.fillText(`shapeShift`, 50, window.innerHeight - 35);
 
     this.ctx.textAlign = "center";
-    this.ctx.fillText(`Type the words before the growing shapes 'pop'!`, window.innerWidth / 2, window.innerHeight - 35);
+    this.ctx.fillText(`Type the words before the growing shapes pop!`, window.innerWidth / 2, window.innerHeight - 35);
   }
 
   drawPointAnimation () {
