@@ -107,7 +107,6 @@ class Game {
       this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
       this.board.drawGameOver();
       document.getElementById('restart-button').className = "game-buttons";
-      document.getElementById('author-info').className = '';
     } else {
       this.board.shapes.forEach(shape => shape.grow(this.growRate));
       this.board.drawBackground();
@@ -115,7 +114,7 @@ class Game {
       this.board.drawGUI();
       this.shapeAlreadyPopped(this.currentShape);
       this.wordComplete();
-      this.board.drawPointAnimation();
+      //this.board.drawPointAnimation();
   
       requestAnimationFrame(this.animate.bind(this));
     }
@@ -124,7 +123,7 @@ class Game {
   ingameKeyListener (event) {
     // log every letter that is typed
     const key = event.key;
-    // console.log(event.key);
+    console.log(event.key);
     this.lettersTyped.push(key);
 
     if (this.currentShape === undefined) {
@@ -165,11 +164,6 @@ class Game {
   wordComplete () {
     if (this.correctLettersTyped.length > 0 && this.correctLettersTyped.join("") === this.currentShape.word) {
       this.board.score += 1;
-      if (!this.mute) {
-        const scorePointSound = document.getElementById('score-point-sound');
-        scorePointSound.load();
-        scorePointSound.volume = 0.2;
-        scorePointSound.play();
       }
       this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
       this.correctLettersTyped = [];
@@ -179,7 +173,7 @@ class Game {
       this.board.removeShape(this.currentShape, currentShapeIdx);
       this.currentShape = undefined;
     }
-  }
+  
 
   gameOver() {
     if (this.board.poppedShapes.length === 10) {

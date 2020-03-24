@@ -17,7 +17,6 @@ class Shape {
     if (this.shapeType === 'rectangle') {
       ctx.fillStyle = color;
       ctx.fillRect(this.pos[0], this.pos[1], this.width, this.height);
-
       ctx.textBaseLine = 'middle';
       ctx.textAlign = "center";
       ctx.fillStyle = "#d3d3d3";

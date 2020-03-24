@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const canvasEl = document.getElementsByTagName('canvas')[0];
-  canvasEl.width = window.innerWidth;
-  canvasEl.height = window.innerHeight;
+  const canvas = document.getElementsByTagName('canvas')[0];
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-  const ctx = canvasEl.getContext('2d');
+  const ctx = canvas.getContext('2d');
   ctx.font = '20px Menlo';
 
   window.onload = function () {
@@ -12,6 +12,4 @@ document.addEventListener("DOMContentLoaded", () => {
     const game = new Game(ctx);
     game.pregame();
   };
-
-
 });
