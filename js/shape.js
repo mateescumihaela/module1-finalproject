@@ -45,6 +45,7 @@ class Shape {
     
       if (highlightLetters) {
         const wordWidth = ctx.measureText(this.word).width;
+        //console.log(wordWidth);
         ctx.fillStyle = "#ff0000";
         ctx.textAlign = 'left';
         ctx.fillText(highlightLetters.join(""), this.pos[0] - wordWidth / 2, this.pos[1]);
@@ -73,23 +74,23 @@ class Shape {
     }
   }
 
-  grow (sizeDelta) {
+  grow (size) {
     if (this.shapeType === 'rectangle') {
       this.pos = [
-        this.pos[0] - (sizeDelta / 2),
-        this.pos[1] - (sizeDelta / 2)
+        this.pos[0] - (size / 2),
+        this.pos[1] - (size / 2)
       ];
     }
 
     if (this.shapeType === 'triangle') {
       this.pos = [
-        this.pos[0] - sizeDelta / 2,
-        this.pos[1] - sizeDelta / 2,
+        this.pos[0] - size / 2,
+        this.pos[1] - size / 2,
       ];
     }
 
-    this.height += sizeDelta;
-    this.width += sizeDelta;
+    this.height += size;
+    this.width += size;
   }
 
 }

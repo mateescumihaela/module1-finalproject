@@ -10,15 +10,11 @@ class Game {
     this.correctLettersTyped = [];
     this.incorrectLettersTyped = [];
 
-    this.mute = false;
-
-    this.toggleSound = this.toggleSound.bind(this);
-    this.wordComplete = this.wordComplete.bind(this);
     this.registerListeners();
   }
   
   registerListeners () {
-    // register event listeners on all UI buttons
+    // register event listeners on buttons
     const gameButtons = document.getElementsByClassName('game-buttons');
     for (let i = 0; i < gameButtons.length; i++) {
       if (gameButtons[i].id === 'easy-button') {  
@@ -60,9 +56,6 @@ class Game {
         });
       }
     }
-
-  
-
     // register keypress listener
     document.addEventListener('keypress', event => this.ingameKeyListener(event));
   }
@@ -70,7 +63,7 @@ class Game {
   pregame () {
     this.board = new Board(this.ctx, 1);
     this.board.drawPregame();
-    if (this.mute) this.board.mute = true;
+    //if (this.mute) this.board.mute = true;
     document.getElementById('easy-button').className = "game-buttons";
     document.getElementById('medium-button').className = "game-buttons";
     document.getElementById('hard-button').className = "game-buttons";
@@ -88,19 +81,19 @@ class Game {
     this.animate();
   }
 
-  toggleSound () {
-    if (!this.mute) {
-      document.getElementById('bg-music').volume = 0;
-      document.getElementById('mute-button').className = "";
-      document.getElementById('unmute-button').className = "hidden";
-    } else {
-      document.getElementById('bg-music').volume = 0.05;
-      document.getElementById('mute-button').className = "hidden";
-      document.getElementById('unmute-button').className = "";
-    }
-    this.mute = !this.mute;
-    this.board.mute = !this.board.mute;
-  }
+  // toggleSound () {
+  //   if (!this.mute) {
+  //     document.getElementById('bg-music').volume = 0;
+  //     document.getElementById('mute-button').className = "";
+  //     document.getElementById('unmute-button').className = "hidden";
+  //   } else {
+  //     document.getElementById('bg-music').volume = 0.05;
+  //     document.getElementById('mute-button').className = "hidden";
+  //     document.getElementById('unmute-button').className = "";
+  //   }
+  //   this.mute = !this.mute;
+  //   this.board.mute = !this.board.mute;
+  // }
 
   animate () {
     if (this.gameOver()) {
@@ -121,7 +114,7 @@ class Game {
   }
 
   ingameKeyListener (event) {
-    // log every letter that is typed
+    // log every letter that is being typed
     const key = event.key;
     console.log(event.key);
     this.lettersTyped.push(key);
@@ -154,7 +147,9 @@ class Game {
   matchesCurrentWord (correctLetters, keyPress) {
     if (this.currentShape) {
       const idxToCheck = correctLetters.length;
-      const wordLetters = this.currentShape.word.split("");
+      console.log(idxToCheck);
+      const wordLetters = this.currentShape.word.split(" ");
+      //console.log(wordLetters);
       if (keyPress === wordLetters[idxToCheck]) {
         return true;
       } else { return false; }
