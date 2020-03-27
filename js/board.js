@@ -134,6 +134,7 @@ class Board {
       if (shape.height > 300 || shape.width > 400) {
         this.removeShape(shape, idx);
         this.poppedShapes.push(shape);
+        //console.log(this.poppedShapes);
       } if (shape === currentShape) {
         shape.drawShape(this.ctx, typedLetters);
       } else {

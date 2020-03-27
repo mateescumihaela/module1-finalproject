@@ -114,9 +114,10 @@ class Game {
   }
 
   ingameKeyListener (event) {
+    //console.log(event.target.value);
     // log every letter that is being typed
     const key = event.key;
-    console.log(event.key);
+    //console.log(event.key);
     this.lettersTyped.push(key);
 
     if (this.currentShape === undefined) {
@@ -147,8 +148,10 @@ class Game {
   matchesCurrentWord (correctLetters, keyPress) {
     if (this.currentShape) {
       const idxToCheck = correctLetters.length;
+      const wordLetters = this.currentShape.word.split("");
       console.log(idxToCheck);
-      const wordLetters = this.currentShape.word.split(" ");
+      //console.log(correctLetters);
+      //correctLettersTyped++;
       //console.log(wordLetters);
       if (keyPress === wordLetters[idxToCheck]) {
         return true;
