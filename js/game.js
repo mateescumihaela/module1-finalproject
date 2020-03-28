@@ -26,7 +26,7 @@ class Game {
           for (let j = 0; j < gameButtons.length; j++) {
             gameButtons[j].className += " hidden";
           }
-          this.growRate = 0.6;
+          this.growRate = 0.8;
           this.newShapeInterval = 1.75;
           this.start();
         });
@@ -79,7 +79,7 @@ class Game {
   //play background song
          this.bgSong = document.getElementById('bg-music');
          if (!this.mute) {
-         this.bgSong.volume = 0.05;
+         this.bgSong.volume = 0.3;
          this.bgSong.play();
     // draw initial shapes & background when game starts
     this.board.drawShapes();
@@ -183,6 +183,12 @@ class Game {
   wordComplete () {
     if (this.correctLettersTyped.length > 0 && this.correctLettersTyped.join("") === this.currentShape.word) {
       this.board.score += 1;
+      // if (!this.mute) {
+      //   const scorePointSound = document.getElementById('score-point-sound');
+      //   scorePointSound.load();
+      //   scorePointSound.volume = 0.2;
+      //   scorePointSound.play();
+      // }
       }
       this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
       this.correctLettersTyped = [];
@@ -201,7 +207,7 @@ class Game {
   }
 
   changeLevels() {
-    if (this.board.score === 10) {
+    if (this.board.score === 15) {
       return true;
     }
   }

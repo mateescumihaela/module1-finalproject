@@ -95,7 +95,7 @@ class Board {
     this.ctx.fillText(`⏱️ Score as many points as you can`, window.innerWidth / 2, window.innerHeight / 2 - 140);
     this.ctx.fillText(`by typing the letters before the growing shape pops`, window.innerWidth / 2, window.innerHeight / 2 - 110);
     this.ctx.fillText(`💀 Game over after 2 missed shapes`, window.innerWidth / 2, window.innerHeight / 2 - 50);
-    this.ctx.fillText(`💯 Move to the next level after 10 correct shapes`, window.innerWidth / 2, window.innerHeight / 2 - 20);
+    this.ctx.fillText(`💯 Move to the next level after 15 correct shapes`, window.innerWidth / 2, window.innerHeight / 2 - 20);
     this.ctx.fillText(`Select difficulty:`, window.innerWidth / 2, window.innerHeight / 2 + 60);
   }
 
@@ -138,12 +138,12 @@ class Board {
         this.removeShape(shape, idx);
         this.poppedShapes.push(shape);
         //console.log(this.poppedShapes);
-        if (!this.mute) {
-          const loseLifeSound = document.getElementById('lose-life-sound');
-          loseLifeSound.load();
-          loseLifeSound.volume = 0.2;
-          loseLifeSound.play();
-        }
+        // if (!this.mute) {
+        //   const loseLifeSound = document.getElementById('lose-life-sound');
+        //   loseLifeSound.load();
+        //   loseLifeSound.volume = 0.2;
+        //   loseLifeSound.play();
+        // }
       } else if (shape === currentShape) {
         shape.drawShape(this.ctx, typedLetters);
       } else {
@@ -169,9 +169,9 @@ class Board {
       }
     }
  
-    if (keystrokes.length === 0) { 
-      this.accuracy = 0; 
-    } else if (wrongKeystrokes.length === 0) {
+    // if (keystrokes.length === 0) { 
+    //   this.accuracy = 0; 
+    if (wrongKeystrokes.length === 0) {
       this.accuracy = 100;
     } else {
       this.accuracy = ((allCorrectLetters.length - count)/allCorrectLetters.length * 100).toFixed(1);
