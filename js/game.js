@@ -10,6 +10,9 @@ class Game {
     this.correctLettersTyped = [];
     this.incorrectLettersTyped = [];
 
+   this.mute = false;
+
+    this.toggleSound = this.toggleSound.bind(this);
     this.wordComplete = this.wordComplete.bind(this);
     this.registerListeners();
   }
@@ -64,13 +67,20 @@ class Game {
   pregame () {
     this.board = new Board(this.ctx, 1);
     this.board.drawPregame();
-    //if (this.mute) this.board.mute = true;
+    if (this.mute) this.board.mute = true;
     document.getElementById('easy-button').className = "game-buttons";
     document.getElementById('medium-button').className = "game-buttons";
     document.getElementById('hard-button').className = "game-buttons";
   }
   
   start () {
+  //un-hide mute button when game starts
+        document.getElementById('audio-buttons').className = '';
+  //play background song
+         this.bgSong = document.getElementById('bg-music');
+         if (!this.mute) {
+         this.bgSong.volume = 0.05;
+         this.bgSong.play();
     // draw initial shapes & background when game starts
     this.board.drawShapes();
     this.board.drawGUI();
@@ -82,19 +92,21 @@ class Game {
     this.animate();
   }
 
-  // toggleSound () {
-  //   if (!this.mute) {
-  //     document.getElementById('bg-music').volume = 0;
-  //     document.getElementById('mute-button').className = "";
-  //     document.getElementById('unmute-button').className = "hidden";
-  //   } else {
-  //     document.getElementById('bg-music').volume = 0.05;
-  //     document.getElementById('mute-button').className = "hidden";
-  //     document.getElementById('unmute-button').className = "";
-  //   }
-  //   this.mute = !this.mute;
-  //   this.board.mute = !this.board.mute;
-  // }
+
+}
+   toggleSound () {
+     if (!this.mute) {
+       document.getElementById('bg-music').volume = 0;
+       document.getElementById('mute-button').className = "";
+       document.getElementById('unmute-button').className = "hidden";
+     } else {
+       document.getElementById('bg-music').volume = 0.05;
+       document.getElementById('mute-button').className = "hidden";
+       document.getElementById('unmute-button').className = "";
+     }
+     this.mute = !this.mute;
+     this.board.mute = !this.board.mute;
+    }
 
   animate () {
     if (this.gameOver()) {

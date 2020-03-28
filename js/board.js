@@ -123,13 +123,13 @@ class Board {
     this.ctx.fillStyle = '#e1e1e1';
     this.ctx.textAlign = 'center';
     this.ctx.textBaseLine = 'middle';
-    this.ctx.font = '50px PT Mono';
+    this.ctx.font = '80px PT Mono';
 
-    this.ctx.fillText(`Congrats, now try the next level!`, window.innerWidth/2, 150);
-    this.ctx.font = '20px PT Mono';
+    this.ctx.fillText(`Well done! 👏`, window.innerWidth/2, 150);
+    this.ctx.font = '40px PT Mono';
 
-    this.ctx.fillText(`You completed ${this.score} words!`, window.innerWidth/2, window.innerHeight/2 + 20);
-    this.ctx.fillText(`Your final accuracy: ${this.accuracy}%`, window.innerWidth/2, window.innerHeight/2 + 50);
+    this.ctx.fillText(`You completed ${this.score} words!`, window.innerWidth/2, window.innerHeight/2 - 70);
+    this.ctx.fillText(`Your final accuracy: ${this.accuracy}%`, window.innerWidth/2, window.innerHeight/2 - 30);
   }
 
   drawShapes(currentShape, typedLetters) {
@@ -138,7 +138,13 @@ class Board {
         this.removeShape(shape, idx);
         this.poppedShapes.push(shape);
         //console.log(this.poppedShapes);
-      } if (shape === currentShape) {
+        if (!this.mute) {
+          const loseLifeSound = document.getElementById('lose-life-sound');
+          loseLifeSound.load();
+          loseLifeSound.volume = 0.2;
+          loseLifeSound.play();
+        }
+      } else if (shape === currentShape) {
         shape.drawShape(this.ctx, typedLetters);
       } else {
         shape.drawShape(this.ctx);
@@ -245,17 +251,17 @@ const SHAPES = [
   "triangle",
 ];
 
-const wordList = ["ability","able","aboard","about","above","accept","accident","according",
-"account","accurate","acres","across","act","action","active","activity",
-"actual","actually","add","addition","additional","adjective","adult","adventure",
-"advice","affect","afraid","after","afternoon","again","against","age",
-"ago","agree","ahead","aid","air","airplane","alike","alive",
-"all","allow","almost","alone","along","aloud","alphabet","already",
-"also","although","am","among","amount","ancient","angle","angry",
-"animal","announced","another","answer","ants","any","anybody","anyone",
-"anything","anyway","anywhere","apart","apartment","appearance","apple","applied",
-"appropriate","are","area","arm","army","around","arrange","arrangement",
-"arrive","arrow","art","article","as","aside","ask","asleep",
-"at","ate","atmosphere","atom","atomic","attached","attack","attempt",
-"attention","audience","author","automobile","available","average","avoid","aware",
-"away","baby","back","bad","badly","bag","balance","ball"];
+const wordList = ["c","x","m","f","i","w","o","p",
+"h","z","s","a","v","o","r","b",
+"k","u","t","e","l","j","t","v",
+"c","f","i","r","n","g","s","g",
+"o","e","h","d","r","l","e","v",
+"a","w","t","n","g","d","p","y",
+"s","g","m","g","t","c","g","r",
+"l","d","t","n","a","y","b","e",
+"h","w","r","p","r","e","p","d",
+"x","j","e","m","y","d","g","m",
+"r","w","u","l","s","d","k","e",
+"t","a","h","m","c","h","c","p",
+"t","n","h","m","l","v","d","x",
+"y","b","k","s","o","g","l","q"];

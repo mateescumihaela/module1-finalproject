@@ -8,12 +8,19 @@
   <link rel="stylesheet"  href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"/>
 </head>
 <body>
-  <img id="pregame-bg" src="images/gradientbackground.png">
+  <img id="pregame-bg" src="images/triangle-bg.gif">
   <button id="easy-button" class="game-buttons">👶 Baby</button>
   <button id="medium-button" class="game-buttons">🤵 Master</button>
   <button id="hard-button" class="game-buttons">👹 Beast</button>
   <button id="restart-button" class="game-buttons hidden">Restart Game</button>
   <canvas id="canvas"></canvas>
+  <div id="sounds">
+    <audio src="sounds/bg_song.mp3" id="bg-music"></audio>
+  </div>
+  <div id="audio-buttons" class='hidden'>
+    <button id="mute-button" class="hidden"><i class="fas fa-volume-off"></i></button>
+    <button id="unmute-button"><i class="fas fa-volume-up"></i></button>
+  </div>
   <script language="javascript" src="js/board.js"></script>
   <script language="javascript" src="js/shape.js"></script>
   <script language="javascript" src="js/game.js"></script>

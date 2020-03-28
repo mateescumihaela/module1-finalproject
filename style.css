@@ -50,3 +50,12 @@
 #pregame-bg {
   display: none;
 }
+
+#audio-buttons {
+  display: flex;
+  position: absolute;
+  bottom: 25px;
+  color: whitesmoke;
+  right: 25px;
+  font-size: 30px;
+}
