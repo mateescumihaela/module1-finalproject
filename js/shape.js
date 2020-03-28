@@ -22,12 +22,12 @@ class Shape {
       ctx.fillStyle = "#d3d3d3";
       ctx.fillText(this.word, this.pos[0] + this.width / 2, this.pos[1] + this.height / 2);
       
-      if (highlightLetters) {
-        const wordWidth = ctx.measureText(this.word).width;
-        ctx.fillStyle = "#ff0000";
-        ctx.textAlign = 'left';
-        ctx.fillText(highlightLetters.join(""), (this.pos[0] + this.width/2 - wordWidth / 2), (this.pos[1] + this.height/2));
-      } 
+       if (highlightLetters) {
+         const wordWidth = ctx.measureText(this.word).width;
+         ctx.fillStyle = "#ff0000";
+         ctx.textAlign = 'left';
+         ctx.fillText(highlightLetters.join(""), (this.pos[0] + this.width/2 - wordWidth / 2), (this.pos[1] + this.height/2));
+       } 
     }
 
     if (this.shapeType === 'circle') {
@@ -43,14 +43,14 @@ class Shape {
       ctx.fillStyle = "#d3d3d3";
       ctx.fillText(this.word, this.pos[0], this.pos[1]);
     
-      if (highlightLetters) {
-        const wordWidth = ctx.measureText(this.word).width;
-        //console.log(wordWidth);
-        ctx.fillStyle = "#ff0000";
-        ctx.textAlign = 'left';
-        ctx.fillText(highlightLetters.join(""), this.pos[0] - wordWidth / 2, this.pos[1]);
-      }
-    }
+       if (highlightLetters) {
+         const wordWidth = ctx.measureText(this.word).width;
+         //console.log(wordWidth);
+         ctx.fillStyle = "#ff0000";
+         ctx.textAlign = 'left';
+         ctx.fillText(highlightLetters.join(""), this.pos[0] - wordWidth / 2, this.pos[1]);
+       }
+     }
 
     if (this.shapeType === 'triangle') {
       
@@ -65,13 +65,13 @@ class Shape {
       ctx.fillStyle = "#d3d3d3";
       ctx.fillText(this.word, this.triangleCenter[0], this.triangleCenter[1]);
 
-      if (highlightLetters) {
-        const wordWidth = ctx.measureText(this.word).width;
-        ctx.fillStyle = "#ff0000";
-        ctx.textAlign = 'left';
-        ctx.fillText(highlightLetters.join(""), this.triangleCenter[0] - wordWidth / 2, this.triangleCenter[1]);
-      }
-    }
+       if (highlightLetters) {
+         const wordWidth = ctx.measureText(this.word).width;
+         ctx.fillStyle = "#ff0000";
+         ctx.textAlign = 'left';
+         ctx.fillText(highlightLetters.join(""), this.triangleCenter[0] - wordWidth / 2, this.triangleCenter[1]);
+       }
+     }
   }
 
   grow (size) {

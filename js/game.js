@@ -10,6 +10,7 @@ class Game {
     this.correctLettersTyped = [];
     this.incorrectLettersTyped = [];
 
+    this.wordComplete = this.wordComplete.bind(this);
     this.registerListeners();
   }
   
@@ -100,7 +101,15 @@ class Game {
       this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
       this.board.drawGameOver();
       document.getElementById('restart-button').className = "game-buttons";
-    } else {
+    } 
+
+    else if (this.changeLevels()) {
+      this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
+      this.board.drawNextLevel();
+      document.getElementById('restart-button').className = "game-button";
+    }
+    
+    else {
       this.board.shapes.forEach(shape => shape.grow(this.growRate));
       this.board.drawBackground();
       this.board.drawShapes(this.currentShape, this.correctLettersTyped);
@@ -175,6 +184,12 @@ class Game {
 
   gameOver() {
     if (this.board.poppedShapes.length === 10) {
+      return true;
+    }
+  }
+
+  changeLevels() {
+    if (this.board.score === 10) {
       return true;
     }
   }

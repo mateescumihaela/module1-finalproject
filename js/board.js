@@ -32,26 +32,12 @@ class Board {
     ];
     const randomColor = Object.values(COLORS)[Math.floor(Math.random() * Object.values(COLORS).length)];
     const randomShape = SHAPES[Math.floor(Math.random() * SHAPES.length)];
-    let wordList = ["ability","able","aboard","about","above","accept","accident","according",
-    "account","accurate","acres","across","act","action","active","activity",
-    "actual","actually","add","addition","additional","adjective","adult","adventure",
-    "advice","affect","afraid","after","afternoon","again","against","age",
-    "ago","agree","ahead","aid","air","airplane","alike","alive",
-    "all","allow","almost","alone","along","aloud","alphabet","already",
-    "also","although","am","among","amount","ancient","angle","angry",
-    "animal","announced","another","answer","ants","any","anybody","anyone",
-    "anything","anyway","anywhere","apart","apartment","appearance","apple","applied",
-    "appropriate","are","area","arm","army","around","arrange","arrangement",
-    "arrive","arrow","art","article","as","aside","ask","asleep",
-    "at","ate","atmosphere","atom","atomic","attached","attack","attempt",
-    "attention","audience","author","automobile","available","average","avoid","aware",
-    "away","baby","back","bad","badly","bag","balance","ball"];
     const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 
-    function wordGenerator() {
-      const randomIdx = Math.floor(Math.random() * this.randomWord.length)
-      return this.randomWord[randomIdx]
-    } 
+    // function wordGenerator() {
+    //   const randomIdx = Math.floor(Math.random() * this.randomWord.length)
+    //   return this.randomWord[randomIdx]
+    // } 
    
 
     this.shapes.unshift(new Shape({
@@ -60,7 +46,7 @@ class Board {
       pos: randomPosition,
       width: randomWidth,
       height: randomHeight,
-      word: randomWord
+      word: randomWord[0]
     }));
   }
 
@@ -102,14 +88,15 @@ class Board {
     this.ctx.fillStyle = '#e1e1e1';
     this.ctx.textAlign = 'center';
     this.ctx.textBaseLine = 'middle';
-    this.ctx.font = '50px PT Mono';
-    this.ctx.fillText(`Module 1 Project`, window.innerWidth / 2, 150);
-    this.ctx.font = '15px PT Mono';
-    this.ctx.font = '20px Menlo';
-    this.ctx.fillText(`Score as many points as you can`, window.innerWidth / 2, window.innerHeight / 2 - 100);
-    this.ctx.fillText(`by typing the word before the growing shape pops!`, window.innerWidth / 2, window.innerHeight / 2 - 70);
-    this.ctx.fillText(`Game over after 10 missed shapes!`, window.innerWidth / 2, window.innerHeight / 2 - 40);
-    this.ctx.fillText(`Select difficulty:`, window.innerWidth / 2, window.innerHeight / 2 + 40);
+    this.ctx.font = '80px PT Mono';
+    this.ctx.fillText(`alphaPop`, window.innerWidth / 2, 150);
+    this.ctx.font = '25px PT Mono';
+    this.ctx.font = '25px Menlo';
+    this.ctx.fillText(`⏱️ Score as many points as you can`, window.innerWidth / 2, window.innerHeight / 2 - 140);
+    this.ctx.fillText(`by typing the letters before the growing shape pops`, window.innerWidth / 2, window.innerHeight / 2 - 110);
+    this.ctx.fillText(`💀 Game over after 10 missed shapes`, window.innerWidth / 2, window.innerHeight / 2 - 50);
+    this.ctx.fillText(`💯 Move to the next level after 10 correct shapes`, window.innerWidth / 2, window.innerHeight / 2 - 20);
+    this.ctx.fillText(`Select difficulty:`, window.innerWidth / 2, window.innerHeight / 2 + 60);
   }
 
   drawGameOver () {
@@ -123,6 +110,22 @@ class Board {
     this.ctx.font = '50px PT Mono';
 
     this.ctx.fillText(`Game Over...`, window.innerWidth/2, 150);
+    this.ctx.font = '20px PT Mono';
+
+    this.ctx.fillText(`You completed ${this.score} words!`, window.innerWidth/2, window.innerHeight/2 + 20);
+    this.ctx.fillText(`Your final accuracy: ${this.accuracy}%`, window.innerWidth/2, window.innerHeight/2 + 50);
+  }
+
+  drawNextLevel () {
+    const img = document.getElementById('pregame-bg');
+    this.ctx.drawImage(img, 0, 0, window.innerWidth, window.innerHeight);
+
+    this.ctx.fillStyle = '#e1e1e1';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseLine = 'middle';
+    this.ctx.font = '50px PT Mono';
+
+    this.ctx.fillText(`Congrats, now try the next level!`, window.innerWidth/2, 150);
     this.ctx.font = '20px PT Mono';
 
     this.ctx.fillText(`You completed ${this.score} words!`, window.innerWidth/2, window.innerHeight/2 + 20);
@@ -241,3 +244,18 @@ const SHAPES = [
   "rectangle",
   "triangle",
 ];
+
+const wordList = ["ability","able","aboard","about","above","accept","accident","according",
+"account","accurate","acres","across","act","action","active","activity",
+"actual","actually","add","addition","additional","adjective","adult","adventure",
+"advice","affect","afraid","after","afternoon","again","against","age",
+"ago","agree","ahead","aid","air","airplane","alike","alive",
+"all","allow","almost","alone","along","aloud","alphabet","already",
+"also","although","am","among","amount","ancient","angle","angry",
+"animal","announced","another","answer","ants","any","anybody","anyone",
+"anything","anyway","anywhere","apart","apartment","appearance","apple","applied",
+"appropriate","are","area","arm","army","around","arrange","arrangement",
+"arrive","arrow","art","article","as","aside","ask","asleep",
+"at","ate","atmosphere","atom","atomic","attached","attack","attempt",
+"attention","audience","author","automobile","available","average","avoid","aware",
+"away","baby","back","bad","badly","bag","balance","ball"];
