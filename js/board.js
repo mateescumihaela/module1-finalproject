@@ -113,7 +113,7 @@ class Board {
     this.ctx.font = '20px PT Mono';
 
     this.ctx.fillText(`You completed ${this.score} words!`, window.innerWidth/2, window.innerHeight/2 + 20);
-    this.ctx.fillText(`Your final accuracy: ${this.accuracy}%`, window.innerWidth/2, window.innerHeight/2 + 50);
+    //this.ctx.fillText(`Your final accuracy: ${this.accuracy}%`, window.innerWidth/2, window.innerHeight/2 + 50);
   }
 
   drawNextLevel () {
@@ -128,15 +128,15 @@ class Board {
     this.ctx.fillText(`Well done! 👏`, window.innerWidth/2, 150);
     this.ctx.font = '40px PT Mono';
 
-    this.ctx.fillText(`You completed ${this.score} words!`, window.innerWidth/2, window.innerHeight/2 - 70);
-    this.ctx.fillText(`Your final accuracy: ${this.accuracy}%`, window.innerWidth/2, window.innerHeight/2 - 30);
+    this.ctx.fillText(`Your final score: ${this.score}`, window.innerWidth/2, window.innerHeight/2 - 70);
+    //this.ctx.fillText(`Your final accuracy: ${this.accuracy}%`, window.innerWidth/2, window.innerHeight/2 - 30);
   }
 
   drawShapes(currentShape, typedLetters) {
     this.shapes.forEach((shape, idx) => {
       if (shape.height > 300 || shape.width > 400) {
         this.removeShape(shape, idx);
-        this.poppedShapes.push(shape);
+        //this.poppedShapes.push(shape);
         //console.log(this.poppedShapes);
         // if (!this.mute) {
         //   const loseLifeSound = document.getElementById('lose-life-sound');
@@ -164,7 +164,7 @@ class Board {
 
     for (let i = 0; i < allCorrectLetters.length; i++) {
       if (allCorrectLetters[i] !== keystrokesArray[i]) {
-        count += 1;
+        count += 0.5;
         keystrokesArray = keystrokesArray.slice(0, i).concat(keystrokesArray.slice(i + 1));
       }
     }

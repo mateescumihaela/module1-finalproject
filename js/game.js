@@ -47,7 +47,7 @@ class Game {
             gameButtons[j].className += " hidden";
           }
           this.growRate = 1.5;
-          this.newShapeInterval = 0.8;
+          this.newShapeInterval = 1;
           this.start();
         });
       }
@@ -201,7 +201,7 @@ class Game {
   
 
   gameOver() {
-    if (this.board.poppedShapes.length === 2) {
+    if (this.board.poppedShapes.length === 1) {
       return true;
     }
   }
