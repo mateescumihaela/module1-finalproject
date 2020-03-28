@@ -100,7 +100,7 @@ class Game {
        document.getElementById('mute-button').className = "";
        document.getElementById('unmute-button').className = "hidden";
      } else {
-       document.getElementById('bg-music').volume = 0.05;
+       document.getElementById('bg-music').volume = 0.3;
        document.getElementById('mute-button').className = "hidden";
        document.getElementById('unmute-button').className = "";
      }
@@ -195,7 +195,7 @@ class Game {
   
 
   gameOver() {
-    if (this.board.poppedShapes.length === 10) {
+    if (this.board.poppedShapes.length === 2) {
       return true;
     }
   }

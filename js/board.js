@@ -94,7 +94,7 @@ class Board {
     this.ctx.font = '25px Menlo';
     this.ctx.fillText(`⏱️ Score as many points as you can`, window.innerWidth / 2, window.innerHeight / 2 - 140);
     this.ctx.fillText(`by typing the letters before the growing shape pops`, window.innerWidth / 2, window.innerHeight / 2 - 110);
-    this.ctx.fillText(`💀 Game over after 10 missed shapes`, window.innerWidth / 2, window.innerHeight / 2 - 50);
+    this.ctx.fillText(`💀 Game over after 2 missed shapes`, window.innerWidth / 2, window.innerHeight / 2 - 50);
     this.ctx.fillText(`💯 Move to the next level after 10 correct shapes`, window.innerWidth / 2, window.innerHeight / 2 - 20);
     this.ctx.fillText(`Select difficulty:`, window.innerWidth / 2, window.innerHeight / 2 + 60);
   }
