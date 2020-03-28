@@ -110,13 +110,13 @@ class Game {
 
   animate () {
     if (this.gameOver()) {
-      this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
+      //this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
       this.board.drawGameOver();
       document.getElementById('restart-button').className = "game-buttons";
     } 
 
     else if (this.changeLevels()) {
-      this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
+      //this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
       this.board.drawNextLevel();
       document.getElementById('restart-button').className = "game-button";
     }
@@ -190,7 +190,7 @@ class Game {
       //   scorePointSound.play();
       // }
       }
-      this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
+      //this.board.calculateAccuracy(this.lettersTyped, this.incorrectLettersTyped);
       this.correctLettersTyped = [];
       this.firstKeyPressed = undefined;
       const currentShapeIdx = this.board.shapes.indexOf(this.currentShape);

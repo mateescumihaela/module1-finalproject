@@ -11,7 +11,7 @@ class Board {
     this.addInitialShapes();
 
     this.score = 0;
-    this.accuracy = "";
+    //this.accuracy = "";
 
     this.poppedShapes = [];
     this.completedShapes = [];
@@ -157,26 +157,26 @@ class Board {
     this.pastWords.push(this.shapes);
   }
 
-  calculateAccuracy (keystrokes, wrongKeystrokes) {
-    let count = 0;
-    const allCorrectLetters = this.pastWords.join("").split("");
-    let keystrokesArray = keystrokes.slice();
+  // calculateAccuracy (keystrokes, wrongKeystrokes) {
+  //   let count = 0;
+  //   const allCorrectLetters = this.pastWords.join("").split("");
+  //   let keystrokesArray = keystrokes.slice();
 
-    for (let i = 0; i < allCorrectLetters.length; i++) {
-      if (allCorrectLetters[i] !== keystrokesArray[i]) {
-        count += 0.5;
-        keystrokesArray = keystrokesArray.slice(0, i).concat(keystrokesArray.slice(i + 1));
-      }
-    }
+  //   for (let i = 0; i < allCorrectLetters.length; i++) {
+  //     if (allCorrectLetters[i] !== keystrokesArray[i]) {
+  //       count += 0.5;
+  //       keystrokesArray = keystrokesArray.slice(0, i).concat(keystrokesArray.slice(i + 1));
+  //     }
+  //   }
  
-    // if (keystrokes.length === 0) { 
-    //   this.accuracy = 0; 
-    if (wrongKeystrokes.length === 0) {
-      this.accuracy = 100;
-    } else {
-      this.accuracy = ((allCorrectLetters.length - count)/allCorrectLetters.length * 100).toFixed(1);
-    }
-  }
+  //   // if (keystrokes.length === 0) { 
+  //   //   this.accuracy = 0; 
+  //   if (wrongKeystrokes.length === 0) {
+  //     this.accuracy = 100;
+  //   } else {
+  //     this.accuracy = ((allCorrectLetters.length - count)/allCorrectLetters.length * 100).toFixed(1);
+  //   }
+  // }
 
   drawGUI() {
     const currentTime = new Date();
@@ -185,8 +185,8 @@ class Board {
     this.ctx.textAlign = "left";
     this.ctx.textBaseLine = "hanging";
     this.ctx.fillText(`Lives:   ${10 - this.poppedShapes.length}`, 50, 35);
-    this.ctx.fillText(`Accuracy:    ${this.accuracy}%`, 340, 35);
-    this.ctx.fillText(`Score:   ${this.score}`, 635, 35);
+    //this.ctx.fillText(`Accuracy:    ${this.accuracy}%`, 340, 35);
+    this.ctx.fillText(`Score:   ${this.score}`, 350, 35);
 
     this.ctx.textAlign = "center";
     this.ctx.fillText(`Type the words before the growing shapes pop!`, window.innerWidth / 2, window.innerHeight - 35);
